@@ -1,6 +1,7 @@
 Blockly.Blocks["yolouno_ina219"] = {
   init: function () {
     this.jsonInit({
+      type: "yolouno_ina219",
       message0: "giá trị %1 từ cảm biến",
       args0: [
         {
