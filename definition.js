@@ -30,7 +30,7 @@ Blockly.Python["ina_set_range"] = function (block) {
   Blockly.Python.definitions_['import_logging'] = 'from logging import INFO';
   Blockly.Python.definitions_['init_mpu6050'] = 'ina = INA219(log_level=INFO)';
   // TODO: Assemble Python into code variable.
-  var code = "ina.configure(voltage_range=" + param+ ")";
+  var code = "ina.configure(voltage_range=" + param+ ")\n";
   return code;
 };
 
