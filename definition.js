@@ -1,5 +1,41 @@
 var BlockColor = "#2ECC71";
 
+Blockly.Blocks["ina_set_range"] = {
+  init: function () {
+    this.jsonInit({
+      colour: BlockColor,
+      tooltip: "",
+      message0: "cài đặt thang đo %1",
+      args0: [
+        {
+          type: "field_dropdown",
+          name: "PARAM",
+          options: [
+            ["16V", "0"],
+            ["32V", "1"],
+          ],
+        }
+      ],
+      inputsInline: true,
+      previousStatement: null,
+      nextStatement: null,
+      output: "",
+      helpUrl: ""
+    });
+  },
+};
+
+Blockly.Python["ina_set_range"] = function (block) {
+  var param = block.getFieldValue("PARAM");
+  Blockly.Python.definitions_['import_ina219'] = 'from ina219 import INA219';
+  Blockly.Python.definitions_['import_logging'] = 'from logging import INFO';
+  Blockly.Python.definitions_['init_mpu6050'] = 'ina = INA219(log_level=INFO)';
+  // TODO: Assemble Python into code variable.
+  var code = "ina.configure(voltage_range=" + "1)";
+  return code;
+};
+
+
 Blockly.Blocks["yolo_uno_ina219"] = {
   init: function () {
     this.jsonInit({
@@ -25,6 +61,9 @@ Blockly.Blocks["yolo_uno_ina219"] = {
 
 Blockly.Python["yolo_uno_ina219"] = function (block) {
   var value = block.getFieldValue("VALUE");
+  Blockly.Python.definitions_['import_ina219'] = 'from ina219 import INA219';
+  Blockly.Python.definitions_['import_logging'] = 'from logging import INFO';
+  Blockly.Python.definitions_['init_mpu6050'] = 'ina = INA219(log_level=INFO)';
   // TODO: Assemble Python into code variable.
   var code = "ina." + value;
   return [code, Blockly.Python.ORDER_NONE];
