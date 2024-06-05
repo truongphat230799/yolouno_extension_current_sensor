@@ -13,5 +13,6 @@
     "languages": {
         "en": "languages/en.js",
         "vi": "languages/vi.js"
-    }
+    },
+    "poster": "poster.png"
 }
