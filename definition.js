@@ -3,8 +3,7 @@ var BlockColor = "#2ECC71";
 Blockly.Blocks["ina_set_range"] = {
   init: function () {
     this.jsonInit({
-      colour: BlockColor,
-      tooltip: "",
+      type: "ina_set_range",
       message0: "cài đặt thang đo %1",
       args0: [
         {
@@ -16,10 +15,10 @@ Blockly.Blocks["ina_set_range"] = {
           ],
         }
       ],
-      inputsInline: true,
       previousStatement: null,
       nextStatement: null,
-      output: "",
+      tooltip: "",
+      colour: BlockColor,
       helpUrl: ""
     });
   },
@@ -31,7 +30,7 @@ Blockly.Python["ina_set_range"] = function (block) {
   Blockly.Python.definitions_['import_logging'] = 'from logging import INFO';
   Blockly.Python.definitions_['init_mpu6050'] = 'ina = INA219(log_level=INFO)';
   // TODO: Assemble Python into code variable.
-  var code = "ina.configure(voltage_range=" + "1)";
+  var code = "ina.configure(voltage_range=" + param+ ")";
   return code;
 };
 
