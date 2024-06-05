@@ -1,42 +1,31 @@
+var BlockColor = "#2ECC71";
+
 Blockly.Blocks["yolouno_ina219"] = {
   init: function () {
     this.jsonInit({
-      type: "yolouno_ina219",
+      colour: BlockColor,
+      tooltip: "",
       message0: "giá trị %1 từ cảm biến",
       args0: [
         {
           type: "field_dropdown",
-          name: "TYPE",
+          name: "VALUE",
           options: [
-            [
-              "điện áp",
-              "voltage()"
-            ],
-            [
-              "dòng diện",
-              "current()"
-            ],
-            [
-              "công suất",
-              "power()"
-            ]
+            ["điện áp", "voltage()"],
+            ["dòng điện", "current()"],
+            ["công suất", "power()"],
           ],
         }
       ],
       output: "Number",
-      colour: "#d400d4",
-      tooltip: "",
       helpUrl: ""
     });
-  }
+  },
 };
 
 Blockly.Python["yolouno_ina219"] = function (block) {
-  var type = block.getFieldValue('TYPE');
+  var value = block.getFieldValue("VALUE");
   // TODO: Assemble Python into code variable.
-  Blockly.Python.definitions_['import_ina219'] = 'from ina219 import INA219';
-  Blockly.Python.definitions_['import_logging'] = 'from logging import INFO';
-  var code = 'ina.' + type;
-  // TODO: Change ORDER_NONE to the correct strength.
+  var code = "ina." + value;
   return [code, Blockly.Python.ORDER_NONE];
 };
