@@ -23,7 +23,7 @@ Blockly.Blocks["yolouno_ina219"] = {
           ],
         }
       ],
-      output: null,
+      output: "Number",
       colour: "#d400d4",
       tooltip: "",
       helpUrl: ""
