@@ -1,0 +1,17 @@
+{
+    "name": "Cảm biến dòng",
+    "description": "Mục mở rộng cho cảm biến dòng INA219",
+    "libs": [
+        "ina219.py",
+        "logging.py",
+        "example.py"
+    ],
+    "blocks": [
+        "definition.js"
+    ],
+    "toolbox": "toolbox.xml",
+    "languages": {
+        "en": "languages/en.js",
+        "vi": "languages/vi.js"
+    }
+}
