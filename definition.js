@@ -1,6 +1,6 @@
 var BlockColor = "#2ECC71";
 
-Blockly.Blocks["yolouno_ina219"] = {
+Blockly.Blocks["yolo_uno_ina219"] = {
   init: function () {
     this.jsonInit({
       colour: BlockColor,
@@ -23,7 +23,7 @@ Blockly.Blocks["yolouno_ina219"] = {
   },
 };
 
-Blockly.Python["yolouno_ina219"] = function (block) {
+Blockly.Python["yolo_uno_ina219"] = function (block) {
   var value = block.getFieldValue("VALUE");
   // TODO: Assemble Python into code variable.
   var code = "ina." + value;
