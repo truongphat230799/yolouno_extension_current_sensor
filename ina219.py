@@ -109,7 +109,7 @@ class INA219:
     # to guarantee that current overflow can always be detected.
     __CURRENT_LSB_FACTOR = 32800
 
-    def __init__(self, shunt_ohms, i2c = None, max_expected_amps=None,
+    def __init__(self, shunt_ohms = None, i2c = None, max_expected_amps=None,
                  address=__ADDRESS, log_level=logging.ERROR):
         """Construct the class.
 
@@ -131,6 +131,7 @@ class INA219:
         i2c = SoftI2C(scl=Pin(SCL_PIN), sda=Pin(SDA_PIN))
         self._i2c = i2c
         self._address = address
+        shunt_ohms = 0.1
         self._shunt_ohms = shunt_ohms
         self._max_expected_amps = max_expected_amps
         self._min_device_current_lsb = self._calculate_min_current_lsb()
@@ -439,3 +440,4 @@ class DeviceRangeError(Exception):
         super(DeviceRangeError, self).__init__(msg)
         self.gain_volts = gain_volts
         self.device_limit_reached = device_max
+
