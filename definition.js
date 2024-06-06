@@ -46,8 +46,8 @@ Blockly.Blocks["yolo_uno_ina219"] = {
           type: "field_dropdown",
           name: "VALUE",
           options: [
-            ["điện áp", "voltage()"],
             ["dòng điện", "current()"],
+            ["điện áp", "voltage()"],            
             ["công suất", "power()"],
           ],
         }
